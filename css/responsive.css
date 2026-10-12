@@ -1,0 +1,96 @@
+/* ==========================================================================
+   Jaipur Vibes - responsive styles (tablet and mobile)
+   ========================================================================== */
+
+/* Navigation collapses to a menu button below 1180px */
+@media(max-width:1359px){.nav>ul{gap:1.1rem}.nl,.sub-btn{font-size:.95rem}}
+@media(min-width:1181px) and (max-width:1359px){.hr .soc{display:none}}
+@media(max-width:1180px){
+  .nav-toggle{display:flex;flex-direction:column;justify-content:center;gap:5px;width:48px;height:48px;align-items:center;background:none;border:1px solid var(--line);border-radius:var(--r);cursor:pointer}
+  .nav-toggle span{width:22px;height:2px;background:var(--maroon-d);transition:transform .3s,opacity .3s}
+  .nav-toggle[aria-expanded=true] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .nav-toggle[aria-expanded=true] span:nth-child(2){opacity:0}
+  .nav-toggle[aria-expanded=true] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .hr{display:none}
+  .hdr{min-height:70px}
+  .nav{position:absolute;left:0;right:0;top:100%;background:var(--cream);border-bottom:2px solid var(--gold);max-height:0;overflow:hidden;visibility:hidden;transition:max-height .4s var(--ease),visibility .4s}
+  .nav.open{max-height:calc(100vh - 80px);max-height:calc(100dvh - 80px);overflow:auto;visibility:visible}
+  .nav>ul{flex-direction:column;align-items:stretch;gap:0;padding:.4rem 1.25rem 6rem}
+  .nav>ul>li{border-bottom:1px solid var(--line)}
+  .nl,.sub-btn{display:block;width:100%;text-align:left;padding:1rem 0;font-size:1.05rem}
+  .nl::after,.sub-btn::before{display:none}
+  .sub-btn{display:flex;justify-content:space-between;align-items:center}
+  .sub{position:static;opacity:1;visibility:visible;transform:none;max-height:0;overflow:hidden;border:0;box-shadow:none;background:none;padding:0 0 0 1rem;transition:max-height .3s var(--ease)}
+  .has-sub.open .sub{max-height:320px;padding-bottom:.5rem}
+  .sub a{padding:.7rem 0}
+  .sub a:hover{background:none}
+  .nav>ul>li.nav-cta{display:block;border:0;padding-top:1.2rem}
+  .nav-cta .btn{display:flex;width:100%}
+  .nav-cta .btn+.btn{margin-top:.6rem}
+  .msoc{display:flex;gap:.6rem;padding-top:1.1rem}
+  .msoc .soc{width:44px;height:44px}
+}
+
+/* Tablet */
+@media(max-width:1024px){
+  .cgrid,.pgrid,.tgrid{grid-template-columns:repeat(2,1fr)}
+  .why{grid-template-columns:repeat(2,1fr)}
+  .fgrid{grid-template-columns:1fr 1fr}
+  .strip{grid-template-columns:repeat(3,1fr)}
+  .strip a:nth-child(n+4){display:none}
+}
+@media(min-width:641px) and (max-width:1024px){.rgrid .r-wide{grid-column:span 2}}
+@media(max-width:1024px){.rgrid{grid-template-columns:repeat(2,1fr)}}
+
+@media(max-width:900px){
+  .hero-in{grid-template-columns:1fr;gap:2.2rem;padding-top:1.75rem}
+  .arches{max-width:520px;width:100%;margin-inline:auto}
+  .split{grid-template-columns:1fr}
+  .arch-img{max-width:340px}
+  .facts-in{grid-template-columns:1fr}
+  .fact{border-left:0;border-top:1px solid rgba(230,207,146,.28);padding:1.2rem 0}
+  .fact:first-child{border-top:0}
+}
+
+/* Mobile */
+@media(max-width:640px){
+  body{padding-bottom:calc(var(--mbar-h) + env(safe-area-inset-bottom))}
+  .container{width:min(100% - 2rem,var(--w))}
+  .topbar{font-size:.78rem}
+  .brand-tag{display:none}
+  .brand-name{font-size:1.35rem}
+  .brand-mark{width:44px;height:44px}
+  .tgrid,.why,.fgrid,.form{grid-template-columns:1fr}
+  .cgrid,.pgrid{gap:.9rem}
+  .cc-t{padding-top:.8rem}
+  .cc-t strong{font-size:1.15rem}
+  .cc-t em{display:none}
+  .cc-go{font-size:.9rem}
+  .pcard h3{font-size:1.05rem}
+  .strip{grid-template-columns:repeat(2,1fr)}
+  .strip a:nth-child(n+3){display:none}
+  .mason{columns:2}
+  .btns{flex-direction:column}
+  .btn{width:100%}
+  .rgrid{grid-template-columns:1fr}
+  .rgrid .r-wide{grid-column:auto}
+  .rcard blockquote p{font-size:1.1rem}
+  .cta-band.cta-split .btns{justify-content:stretch}
+  .copy{flex-direction:column}
+  .site-footer{padding-bottom:2.5rem}
+
+  /* Action bar: Call + Enquire. The WhatsApp link is hidden here because the floating button covers it. */
+  .mbar{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;position:fixed;bottom:0;left:0;right:0;z-index:60;background:var(--maroon-d);border-top:1px solid var(--gold);padding-bottom:env(safe-area-inset-bottom)}
+  .mbar a{display:flex;align-items:center;justify-content:center;min-height:var(--mbar-h);color:var(--cream);text-decoration:none;font-weight:600}
+  .mbar a[href*="wa.me"]{display:none}
+  .mbar .hl{background:var(--gold);color:var(--maroon-d)}
+
+  /* Floating WhatsApp button sits above the action bar, never over it */
+  .wa-float{bottom:calc(var(--mbar-h) + 14px + env(safe-area-inset-bottom));right:14px;height:54px;min-width:54px;padding:0 12px}
+  .wa-float svg{width:28px;height:28px}
+}
+
+@media(max-width:380px){
+  h1{font-size:2rem}
+  .arches{gap:.4rem}
+}
